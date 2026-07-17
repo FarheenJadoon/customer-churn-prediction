@@ -67,15 +67,25 @@ Python, pandas, scikit-learn, XGBoost, SHAP, FastAPI, Streamlit, Docker
 
 ## Project Structure
 ├── notebook/                  # Full EDA + modeling notebook
+
 ├── data/                       # Dataset
+
 ├── app/
+
 │   ├── main.py                 # FastAPI backend
+
 │   └── streamlit_app.py        # Streamlit frontend
+
 ├── churn_model.pkl             # Trained tuned XGBoost model
+
 ├── scaler.pkl
+
 ├── model_columns.json
+
 ├── requirements.txt
+
 ├── Dockerfile
+
 └── README.md
 
 ## How to Run
