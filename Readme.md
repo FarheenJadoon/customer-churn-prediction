@@ -66,3 +66,40 @@ contract upgrades and early-tenure engagement for at-risk customers.
 Python, pandas, scikit-learn, XGBoost, SHAP, FastAPI, Streamlit, Docker
 
 ## Project Structure
+├── notebook/                  # Full EDA + modeling notebook
+├── data/                       # Dataset
+├── app/
+│   ├── main.py                 # FastAPI backend
+│   └── streamlit_app.py        # Streamlit frontend
+├── churn_model.pkl             # Trained tuned XGBoost model
+├── scaler.pkl
+├── model_columns.json
+├── requirements.txt
+├── Dockerfile
+└── README.md
+
+## How to Run
+
+**Option 1 — Docker (recommended)**
+```bash
+docker build -t churn-predictor .
+docker run -p 8000:8000 churn-predictor
+```
+API available at `http://localhost:8000/docs`
+
+**Option 2 — Local**
+```bash
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+streamlit run app/streamlit_app.py
+```
+
+## Key Takeaways
+
+- Accuracy alone is misleading on imbalanced classification problems — 
+  recall and ROC-AUC were prioritized instead
+- Hyperparameter tuning (GridSearchCV) improved XGBoost's recall from 
+  69% to 80%
+- SHAP explainability turns a black-box prediction into an actionable 
+  business insight
+
